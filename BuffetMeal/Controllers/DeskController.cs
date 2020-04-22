@@ -12,6 +12,8 @@ namespace BuffetMeal.Controllers
 {
     public class DeskController : ApiController
     {
+        
+        //桌位列表
         UserDal dal = new UserDal();
         // GET: api/Desk
         public IEnumerable<desk1> Get()
@@ -19,7 +21,7 @@ namespace BuffetMeal.Controllers
             return dal.Dshoe();
         }
       
-
+        //桌位换点
         // PUT: api/Order/5
         public int Put([FromBody]desk1 value)
         {
