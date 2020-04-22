@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29926.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuffetMeal", "BuffetMeal\BuffetMeal.csproj", "{F61987FC-7212-4D4C-9F81-0315A3894D27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{F819A51F-B27D-49E9-B621-52BEE0716252}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DATAMODEL", "DATAMODEL\DATAMODEL.csproj", "{BB78CDCA-F93A-40D5-B1DF-4B4D11EA95A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F61987FC-7212-4D4C-9F81-0315A3894D27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F61987FC-7212-4D4C-9F81-0315A3894D27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F61987FC-7212-4D4C-9F81-0315A3894D27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F61987FC-7212-4D4C-9F81-0315A3894D27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F819A51F-B27D-49E9-B621-52BEE0716252}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F819A51F-B27D-49E9-B621-52BEE0716252}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F819A51F-B27D-49E9-B621-52BEE0716252}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F819A51F-B27D-49E9-B621-52BEE0716252}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB78CDCA-F93A-40D5-B1DF-4B4D11EA95A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB78CDCA-F93A-40D5-B1DF-4B4D11EA95A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB78CDCA-F93A-40D5-B1DF-4B4D11EA95A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB78CDCA-F93A-40D5-B1DF-4B4D11EA95A7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {149BEBBE-5945-4D74-ADFF-865E33F621FC}
+	EndGlobalSection
+EndGlobal
