@@ -7,62 +7,99 @@ using System.Threading.Tasks;
 namespace DATAMODEL
 {
     //用户表
-    public class user1
+    public class Users
     {
-        public int uid   { get; set; }
-        public string uname { get; set; }
-        public string upwd   { get; set; }
-        public int udid { get; set; }
-        public int did { get; set; }
-        public string dname { get; set; }
+        //用户id
+        public int Uid   { get; set; }
+        //用户名
+        public string Uname { get; set; }
+        //用户密码
+        public string Upwd   { get; set; }
+        //用户等级
+        public int Ulid { get; set; }
+        //等级id
+        public int Lid { get; set; }
+        //等级名称
+        public string Lname { get; set; }
     }
     //座位表
     public class desk1
     {
-        public int fid { get; set; }
-        public string fname { get; set; }
-        public int deid   { get; set; }
-        public int dewid  { get; set; }
-        public string deg    { get; set; }
-        public int det    { get; set; }
-        public int def { get; set; }
-        public int wid { get; set; }
-        public string wname { get; set; }
-        public int tid { get; set; }
-        public string tname { get; set; }
+        //服务员id
+        public int Wid { get; set; }
+        //服务员名字
+        public string Wname { get; set; }
+        //桌位id
+        public int Did   { get; set; }
+        //桌位位置
+        public int Daid  { get; set; }
+        //桌位规格
+        public string Dspec   { get; set; }
+        //桌位状态
+        public int Dsid    { get; set; }
+        //服务员id外键
+        public int Dwid { get; set; }
+        //区域id
+        public int Aid { get; set; }
+        //区域名称
+        public string Aname { get; set; }
+        //状态id
+        public int Sid { get; set; }
+        //桌位状态
+        public string Sname { get; set; }
     }
     //菜表
     public class lfood 
     {
-        public int cid { get; set; }
-        public string cname { get; set; }
-        public int fid    { get; set; }
-        public string fname  { get; set; }
-        public string fphoto { get; set; }
-        public decimal fprice { get; set; }
-        public int fcid { get; set; }
-        public int typeid { get; set; }
-        public int ftid { get; set; }
-        public string ftname { get; set; }
+        //厨师id
+        public int Cid { get; set; }
+        //厨师名称
+        public string Cname { get; set; }
+        //菜名id
+        public int Mid    { get; set; }
+        //菜名
+        public string Mname  { get; set; }
+        //菜图
+        public string Mphoto { get; set; }
+        //菜单价
+        public decimal Mprice { get; set; }
+        //厨师id外键
+        public int Mcid { get; set; }
+        //菜类型id
+        public int Fid { get; set; }
+        //菜类型
+        public string Fname { get; set; }
     }
     //订单表
     public class oreder
     {
-        public int oid		 { get; set; }
-        public string ooid { get; set; }
-        public DateTime odertime { get; set; }
-        public int ouid { get; set; }
+        //订单id
+        public int Oid		 { get; set; }
+        //订单号
+        public string Onumber { get; set; }
+        //订单日期
+        public DateTime Odate { get; set; }
+        //订单人id
+        public int Ouid { get; set; }
     }
     //订单详情表
     public class oderFill
     {
-        public int weid { get; set; }
-        public string weiname { get; set; }
-        public int oderfid		 { get; set; }
-        public int ofid { get; set; }
-        public int owid		 { get; set; }
-        public int ownum { get; set; }
-        public decimal odermoney	 { get; set; }
-        public int oderid { get; set; }
+        //口味id
+        public int Tid { get; set; }
+        //口味类型
+        public string Tname { get; set; }
+        //订单详情id
+        public int Ltid		 { get; set; }
+        //订单详情菜名
+        public int Ltmid { get; set; }
+        //订单口味id
+        public int Lttid		 { get; set; }
+        //订单数量
+        public int Ltnum { get; set; }
+        //订单金额
+        public decimal Ltmoney	 { get; set; }
+        //订单id外键
+        public int Ltoid { get; set; }
     }
 }
