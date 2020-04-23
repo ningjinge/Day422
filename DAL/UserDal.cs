@@ -26,14 +26,14 @@ namespace DAL
             return DBHelper.GetToList<Users>("select * from Users where Uid="+uid)[0];
         }
         //桌位列表
-        public List<Dining> DiningDetails(int did)
+        public List<Dining> DiningDetails()
         {
             return DBHelper.GetToList<Dining>("select * from Dining a join Area b on a.Daid=b.Aid join State c on a.Dsid=c.Sid");
         }
         //桌位详情
-        public Dining DiningList()
+        public Dining DiningList(int did)
         {
-            return DBHelper.GetToList<Dining>("select * from Dining a join Area b on a.Daid=b.Aid join State c on a.Dsid=c.Sid where a.Did="+did);
+            return DBHelper.GetToList<Dining>("select * from Dining a join Area b on a.Daid=b.Aid join State c on a.Dsid=c.Sid where a.Did="+did)[0];
         }
         //菜单类别，查询
         public List<Menu> MenuList(string name, int fid)
@@ -62,7 +62,7 @@ namespace DAL
         //添加订单
         public int OrderAdd(Orderfood orderfood)
         {
-            orderfood.Onumber=(int)DateTime.Now.ToString("yyyyMMddhhmmsss");
+            orderfood.Onumber=DateTime.Now.ToString("yyyyMMddhhmmsss");
             return DBHelper.ExecuteNonQuery(string.Format("insert into Orderfood values('{0}','{1}','{2}')",orderfood.Onumber,orderfood.Odate,orderfood.Ouid));
         }
         //生成订单
@@ -83,7 +83,7 @@ namespace DAL
         //删除订单详情
         public int lineitemDel(int lid)
         {
-            return DBHelper.ExecuteNonQuery("delete from Lineitem where Ltid="+oid);
+            return DBHelper.ExecuteNonQuery("delete from Lineitem where Ltid="+lid);
         }
         //删除订单
         public int OrderDel(int oid)

@@ -82,6 +82,7 @@ namespace DATAMODEL
         //订单日期
         public DateTime Odate { get; set; }
         //订单人id
+        public int Ouid { get; set; }
     }
     //订单详情表
     public class Lineitem
