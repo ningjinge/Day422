@@ -57,6 +57,8 @@ namespace DATAMODEL
         public string Cname { get; set; }
         //菜名id
         public int Mid    { get; set; }
+        //菜名类型
+        public int Mfid    { get; set; }
         //菜名
         public string Mname  { get; set; }
         //菜图
@@ -80,7 +82,6 @@ namespace DATAMODEL
         //订单日期
         public DateTime Odate { get; set; }
         //订单人id
-        public int Ouid { get; set; }
     }
     //订单详情表
     public class Lineitem

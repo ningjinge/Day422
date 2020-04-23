@@ -10,76 +10,85 @@ namespace DAL
     public class UserDal
     {
         //登陆
-        public int zuce(user1 m)
+        public int Login(Users users)
         {
-            return (int)DBHelper.ExecuteScalar(string.Format("select * from user1 where uname='{0}',upwd='{1}'", m.uname, m.upwd));
+            return (int)DBHelper.ExecuteScalar(string.Format("select * from Users where Uname='{0}' and Upwd='{1}'",users.Uname,users.Upwd));
         }
-        //用户详情
-        public List<user1> Theuserdetails()
-        {
-            return DBHelper.GetToList<user1>("select * from user1");
+         //注册
+        public int Register(Users users)
+        {      
+            return DBHelper.ExecuteNonQuery(string.Format("insert into Users  values('{0}','{1}','1')",users.Uname,users.Upwd));
         }
-        //食品列表
-        public List<lfood> Listoffood()
+         //用户详情
+        public Users Userdetails(int uid)
         {
-            return DBHelper.GetToList<lfood>("select * from lfood");
-        }
-        //订单详情
-        public List<oderFill> Themenufordetails()
-        {
-            return DBHelper.GetToList<oderFill>("select * from oderFill");
-        }
-        //订单表反填
-        public oderFill Themenufordetailss(int id)
-        {
-            return DBHelper.GetToList<oderFill>("select * from oderFill where oderfid="+id)[0];
-        }
-        //退订
-        public int Deletetheorder(int id)
-        {
-            return DBHelper.ExecuteNonQuery(string.Format("delete from oreder  where oid='{0}'", id));
-        }
-        //修改订单
-        public int modifyorder(oderFill m)
-        {
-            return DBHelper.ExecuteNonQuery(string.Format("update oderFill set ofid='{0}',owid='{1}',ownu='{2}',odermoney='{3}' where oderfid='{4}'", m.ofid,m.owid,m.ownum,m.odermoney,m.oderfid));
-        }
-        //修改座位
-        public int Modifytheseat(desk1 m)
-        {
-            return DBHelper.ExecuteNonQuery(string.Format("update desk1 set dewid='{0}',deg='{1}',det='{2}',def='{3}' where deid='{4}'",m.dewid,m.deg,m.det,m.def,m.deid));
-        }
-        //注册
-        public int Uadd(user1 u)
-        {
-            string sql = string.Format("insert into user1 values('{0}','{1}','1')", u.uname, u.upwd);
-            return DBHelper.ExecuteNonQuery(sql);
+            return DBHelper.GetToList<Users>("select * from Users where Uid="+uid)[0];
         }
         //桌位列表
-        public List<desk1> Dshoe()
+        public List<Dining> DiningDetails(int did)
         {
-            string sql = "select * from desk1 a join desk2 b on a.dewid = b.wid join desk4 c on c.tid = a.det";
-            return DBHelper.GetToList<desk1>(sql);
+            return DBHelper.GetToList<Dining>("select * from Dining a join Area b on a.Daid=b.Aid join State c on a.Dsid=c.Sid");
+        }
+        //桌位详情
+        public Dining DiningList()
+        {
+            return DBHelper.GetToList<Dining>("select * from Dining a join Area b on a.Daid=b.Aid join State c on a.Dsid=c.Sid where a.Did="+did);
         }
         //菜单类别，查询
-        public List<lfood> Fshow(string name, int fid)
+        public List<Menu> MenuList(string name, int fid)
         {
-            string sql = "select * from desk1 a join desk2 b on a.dewid=b.wid join desk4 c on c.tid=a.det where 1=1";
+            string sql = "select * from Menu a join Foodtype b on a.Mfid=b.Fid where 1=1";
             if (string.IsNullOrEmpty(name))
             {
-                sql += " and fname like '%" + name + "%'";
+                sql += " and Mname like '%" + name + "%'";
             }
             else if (fid != 0)
             {
-                sql += " and fotid=" + fid;
+                sql += " and Mfid=" + fid;
             }
-            return DBHelper.GetToList<lfood>(sql);
+            return DBHelper.GetToList<Menu>(sql);
         }
-        //添加订单
-        public int Oadd(oreder o)
+        //菜单详情
+        public Menu MenuDetails(int mid)
         {
-            string sql = string.Format("insert into oreder values('{0}','{1}','{2}')", o.ooid, o.odertime, o.ouid);
-            return DBHelper.ExecuteNonQuery(sql);
+            return DBHelper.GetToList<Menu>("select * from Menu where Mid="+mid);
+        }
+        public 
+        //点餐
+        public int LineitemAdd(Lineitem lineitem)
+        {
+            return DBHelper.ExecuteNonQuery(string.Format("insert into Lineitem values ('{0}','{1}','{2}','{3}',0)",lineitem.Ltmid,lineitem.Lttid,lineitem.Ltnum,lineitem.Ltmoney));
+        } 
+        //添加订单
+        public int OrderAdd(Orderfood orderfood)
+        {
+            orderfood.Onumber=(int)DateTime.Now.ToString("yyyyMMddhhmmsss");
+            return DBHelper.ExecuteNonQuery(string.Format("insert into Orderfood values('{0}','{1}','{2}')",orderfood.Onumber,orderfood.Odate,orderfood.Ouid));
+        }
+        //生成订单
+        public int Lineitem(int oid)
+        {
+            return DBHelper.ExecuteNonQuery("update Lineitem set Ltoid="+oid);
+        }
+        //订单表列表
+        public List<Orderfood> OrderList(int uid)
+        {
+            return DBHelper.GetToList<Orderfood>("select * from Orderfood where Ouid="+uid);
+        }
+        //订单详情表列表
+        public List<lineitem> lineitemList(int oid)
+        {
+            return DBHelper.GetToList<lineitem>("select * from Lineitem where Ltoid="+oid);
+        }
+        //删除订单详情
+        public int lineitemDel(int lid)
+        {
+            return DBHelper.ExecuteNonQuery("delete from Lineitem where Ltid="+oid);
+        }
+        //删除订单
+        public int OrderDel(int oid)
+        {
+             return DBHelper.ExecuteNonQuery("delete from Orderfood where Ouid="+oid);
         }
     }
 }
