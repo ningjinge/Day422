@@ -23,7 +23,7 @@ namespace DATAMODEL
         public string Lname { get; set; }
     }
     //座位表
-    public class desk1
+    public class Dining
     {
         //服务员id
         public int Wid { get; set; }
@@ -49,7 +49,7 @@ namespace DATAMODEL
         public string Sname { get; set; }
     }
     //菜表
-    public class lfood 
+    public class Menu
     {
         //厨师id
         public int Cid { get; set; }
@@ -71,7 +71,7 @@ namespace DATAMODEL
         public string Fname { get; set; }
     }
     //订单表
-    public class oreder
+    public class Orderfood
     {
         //订单id
         public int Oid		 { get; set; }
@@ -83,7 +83,7 @@ namespace DATAMODEL
         public int Ouid { get; set; }
     }
     //订单详情表
-    public class oderFill
+    public class Lineitem
     {
         //口味id
         public int Tid { get; set; }
