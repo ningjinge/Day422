@@ -52,9 +52,8 @@ namespace DAL
         //菜单详情
         public Menu MenuDetails(int mid)
         {
-            return DBHelper.GetToList<Menu>("select * from Menu where Mid="+mid);
+            return DBHelper.GetToList<Menu>("select * from Menu where Mid="+mid)[0];
         }
-        public 
         //点餐
         public int LineitemAdd(Lineitem lineitem)
         {
@@ -77,9 +76,9 @@ namespace DAL
             return DBHelper.GetToList<Orderfood>("select * from Orderfood where Ouid="+uid);
         }
         //订单详情表列表
-        public List<lineitem> lineitemList(int oid)
+        public List<Lineitem> lineitemList(int oid)
         {
-            return DBHelper.GetToList<lineitem>("select * from Lineitem where Ltoid="+oid);
+            return DBHelper.GetToList<Lineitem>("select * from Lineitem where Ltoid="+oid);
         }
         //删除订单详情
         public int lineitemDel(int lid)
