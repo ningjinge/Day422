@@ -71,14 +71,14 @@ namespace DAL
             return DBHelper.ExecuteNonQuery("update Lineitem set Ltoid="+oid);
         }
         //订单表列表
-        public List<Orderfood> OrderList(int uid)
+        public List<Orderfood> OrderList()
         {
-            return DBHelper.GetToList<Orderfood>("select * from Orderfood where Ouid="+uid);
+            return DBHelper.GetToList<Orderfood>("select * from Orderfood");
         }
         //订单详情表列表
-        public List<Lineitem> lineitemList(int oid)
+        public List<Lineitem> lineitemList()
         {
-            return DBHelper.GetToList<Lineitem>("select * from Lineitem where Ltoid="+oid);
+            return DBHelper.GetToList<Lineitem>("select * from Lineitem");
         }
         //删除订单详情
         public int lineitemDel(int lid)

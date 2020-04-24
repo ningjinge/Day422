@@ -10,33 +10,34 @@ using DATAMODEL;
 
 namespace BuffetMeal.Controllers
 {
-    public class DeskController : ApiController
+    public class MenuController : ApiController
     {
         UserDal dal = new UserDal();
-        // GET: api/Desk0
-        //桌子列表
-        public IEnumerable<Dining> Get()
+        //显示菜单列表。
+        // GET: api/Menu
+        public IEnumerable<Menu> Get(string name ,int fid)
         {
-            return dal.DiningDetails() ;
+            return dal.MenuList(name,fid); ;
         }
 
-        // GET: api/Desk/5
-        public Dining Get(int id)
+        // GET: api/Menu/5
+        public Menu Get(int id)
         {
-            return dal.DiningList(id);
+            return dal.MenuDetails(id);
         }
 
-        // POST: api/Desk
+        // POST: api/Menu
+        //
         public void Post([FromBody]string value)
         {
         }
 
-        // PUT: api/Desk/5
+        // PUT: api/Menu/5
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE: api/Desk/5
+        // DELETE: api/Menu/5
         public void Delete(int id)
         {
         }
